@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class String {
+private:
+    char *str;
+
+public:
+    String() {
+        str = new char[100];
+        cout << "Constructor invoked." << endl;
+    }
+
+     void accept() {
+        cout << "Enter a string: ";
+        cin.getline(str, 100);
+    }
+
+     void display() {
+        cout << "The string is: " << str << endl;
+    }
+
+   ~String() {
+        cout << "Destructor invoked." << endl;
+        delete[] str;
+    }
+};
+
+int main() {
+    String s;      
+    s.accept();
+    s.display();
+
+    return 0;      
+}
