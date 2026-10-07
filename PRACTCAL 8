@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class for employee basic information
+class Employee {
+protected:
+    int empId;
+    string name;
+    float experience;
+
+public:
+    void getEmployeeDetails() {
+        cout << "Enter Employee ID: ";
+        cin >> empId;
+
+        cout << "Enter Employee Name: ";
+        cin >> name;
+
+        cout << "Enter Years of Experience: ";
+        cin >> experience;
+    }
+
+    void displayEmployeeDetails() {
+        cout << "\nEmployee ID: " << empId;
+        cout << "\nEmployee Name: " << name;
+        cout << "\nExperience: " << experience << " years";
+    }
+};
+
+// Base class for promotion information
+class Promotion {
+protected:
+    float performance;
+
+public:
+    void getPerformance() {
+        cout << "Enter Performance Rating (out of 100): ";
+        cin >> performance;
+    }
+
+    void checkPromotion(float experience) {
+        // Eligibility criteria:
+        // Experience >= 5 years and performance >= 75
+        if (experience >= 5 && performance >= 75)
+            cout << "\nPromotion Status: Eligible for Promotion";
+        else
+            cout << "\nPromotion Status: Not Eligible for Promotion";
+    }
+};
+
+// Multiple inheritance
+class EmployeePromotion : public Employee, public Promotion {
+public:
+    void displayResult() {
+        displayEmployeeDetails();
+        cout << "\nPerformance Rating: " << performance << "/100";
+        checkPromotion(experience);
+        cout << endl;
+    }
+};
+
+int main() {
+    EmployeePromotion emp;
+
+    cout << "Enter Employee Details\n";
+    emp.getEmployeeDetails();
+
+    emp.getPerformance();
+
+    cout << "\n\n--- Employee Promotion Details ---";
+    emp.displayResult();
+
+    return 0;
+}
