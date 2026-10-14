@@ -1,0 +1,29 @@
+#include <iostream>  
+using namespace std;
+
+int main() {
+    double temperature;
+
+    // Accept temperature from the user
+    cout << "Enter temperature (0 to 100): ";
+    cin >> temperature;
+
+    try {
+        // Check whether temperature is outside the allowed range
+        if (temperature < 0 || temperature > 100) {
+            // Throw an exception if temperature is invalid
+            throw out_of_range("Temperature is outside the allowed range!");
+        }
+
+        // Display the temperature if it is valid
+        cout << "Temperature is valid: "
+             << temperature << " C" << endl;
+    }
+    catch (const out_of_range& e) {
+        // Catch the exception and display the error message
+        cout << "Exception caught: " << e.what() << endl;
+    }
+
+    return 0;  // End the program successfully
+}
+
