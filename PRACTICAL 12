@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// First Namespace
+namespace Student
+{
+    void display()
+    {
+        cout << "Student Name: Arya" << endl;
+        cout << "Branch: ENTC" << endl;
+    }
+}
+
+// Second Namespace
+namespace College
+{
+    void display()
+    {
+        cout << "College: MMCOE Pune" << endl;
+    }
+}
+
+int main()
+{
+    Student::display();
+    College::display();
+
+    return 0;
+}
