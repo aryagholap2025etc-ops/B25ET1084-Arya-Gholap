@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+// Class Template
+template <class T>
+class Calculator
+{
+public:
+    T a, b;
+
+    Calculator(T x, T y)
+    {
+        a = x;
+        b = y;
+    }
+
+    void display()
+    {
+        cout << "Addition = " << a + b << endl;
+    }
+};
+
+// Function Template
+template <class T>
+T findMaximum(T x, T y)
+{
+    if (x > y)
+        return x;
+    else
+        return y;
+}
+
+int main()
+{
+    // Class Template
+    Calculator<int> c1(10, 20);
+    c1.display();
+
+    // Function Template
+    cout << "Maximum Number = " << findMaximum(15, 25);
+
+    return 0;
+}
