@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Product
+{
+public:
+    virtual void calculatePrice()
+    {
+        cout << "Product Price" << endl;
+    }
+};
+
+// Derived class 1
+class Electronics : public Product
+{
+public:
+    void calculatePrice()
+    {
+        cout << "Electronics Price = Rs. 25000" << endl;
+    }
+};
+
+// Derived class 2
+class Clothing : public Product
+{
+public:
+    void calculatePrice()
+    {
+        cout << "Clothing Price = Rs. 1500" << endl;
+    }
+};
+
+// Main function
+int main()
+{
+    Product *p;
+
+    Electronics e;
+    Clothing c;
+
+    p = &e;
+    p->calculatePrice();
+
+    p = &c;
+    p->calculatePrice();
+
+    return 0;
+}
